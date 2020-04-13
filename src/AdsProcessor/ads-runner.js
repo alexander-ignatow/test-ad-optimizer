@@ -76,6 +76,18 @@ class AdRunner {
     }
   }
 
+  getAdWithoutOptimization () {
+     // select ad with least shows
+     const ad = minBy(this.availableAds, 'shows')
+     ad.shows++
+
+     // just return result - no optimisations
+
+     return {
+       id: ad.id
+     }
+  }
+
   onClick (id) {
     const ad = find(this.availableAds, { id })
     if (ad) {

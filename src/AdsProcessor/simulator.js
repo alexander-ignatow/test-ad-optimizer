@@ -1,7 +1,7 @@
 import createAdRunner from "./ads-runner"
 
 export default function performTest( testSetup = {runs: 100, clickMap: {A: 0.1} } ) {
-  const { runs, clickMap } = testSetup
+  const { runs, clickMap, noOptimization } = testSetup
   const runner = createAdRunner()
 
   const testStat = {
@@ -10,7 +10,7 @@ export default function performTest( testSetup = {runs: 100, clickMap: {A: 0.1} 
   }
 
   for (let i = 0; i < runs; i++) {
-    const ad = runner.getAd()
+    const ad = noOptimization ? runner.getAdWithoutOptimization() : runner.getAd()
 
     // stat
     testStat.shows[ad.id] = 1 + (testStat.shows[ad.id] ? testStat.shows[ad.id] : 0)
