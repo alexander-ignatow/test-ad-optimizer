@@ -52,7 +52,7 @@ function App() {
 
           displayResults(testStat)
           
-        }}>run (no optimisation)</button>
+        }}>run (no optimization)</button>
       </header>
       <div>
         <code>
